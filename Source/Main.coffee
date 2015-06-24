@@ -27,7 +27,7 @@ class ExpectedWrite extends EventEmitter
       @data.stderr += data
       @validateExpected()
 
-# Internal
+  # Internal
   validateExpected: ->
     return unless @expected
     return unless @callback
