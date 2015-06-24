@@ -15,7 +15,7 @@ SSH.connect().then(function(){
   return SSH.requestShell()
 }).then(function(SSHShell){
   var E = new ExpectedWrite(SSHShell)
-  E.write("sudo echo test").expect('[sudo] password')
+  E.write("sudo echo test\n").expect('[sudo] password')
     .then(function(Content)){
       console.log(Content) // [sudo] password for steel:
       E.write("mySecretPassword")
