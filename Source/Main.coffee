@@ -1,4 +1,4 @@
-# @Compiler-Output "../Dist/ExceptedWrite.js"
+# @Compiler-Output "../Dist/Main.js"
 
 Promise = require('a-promise')
 EventEmitter = require('events').EventEmitter
