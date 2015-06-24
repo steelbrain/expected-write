@@ -45,8 +45,9 @@ class ExpectedWrite extends EventEmitter
     @expectedStream = 'both'
     callback({Content: content, E: @})
 
-  expect: (toExpect) ->
+  expect: (toExpect, expectedStream) ->
     return new Promise (Resolve) =>
+      @expectedStream = expectedStream
       @expected = toExpect
       @callback = Resolve
       @validateExpected()
