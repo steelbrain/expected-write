@@ -33,7 +33,7 @@ enum StreamType { stdout, stderr, both }
 class ExpectedWrite extends EventEmitter{
   expect(toExpect: String, expectedStream: StreamType): Promise
   write(Content: String): this
-  end(): Promise
+  end(?Content: String): Promise
   onEnd(): Promise
 }
 ```
