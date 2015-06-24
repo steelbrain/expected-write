@@ -56,12 +56,13 @@ class ExpectedWrite extends EventEmitter
       @stream.stdin.write Content
     else
       @stream.write Content
+    @
 
   end: ->
     if @stream.kill
       @stream.kill()
     else
-      @stream.close()
+      @stream.end('')
     @onEnd()
 
   onEnd: ->
