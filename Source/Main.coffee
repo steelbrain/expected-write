@@ -14,6 +14,7 @@ class ExpectedWrite extends EventEmitter
     @data = stdout: '', stderr: ''
 
     @stream.on 'close', =>
+      @status = false
       @emit('end', @data)
     if @stream.stdout
       @stream.stdout.on 'data', (data) =>
