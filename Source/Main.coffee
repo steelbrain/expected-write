@@ -1,7 +1,7 @@
 # @Compiler-Output "../Dist/ExceptedWrite.js"
 
-EventEmitter = require('events').EventEmitter
 Promise = require('a-promise')
+EventEmitter = require('events').EventEmitter
 Buffer = require('buffer').Buffer
 
 class ExpectedWrite extends EventEmitter

@@ -1,0 +1,22 @@
+{
+  "name": "expected-write",
+  "version": "0.0.1",
+  "description": "A promise based expect-and-write for child_processes and streams",
+  "main": "./Dist/Main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/steelbrain/Expected-Write.git"
+  },
+  "author": "steelbrain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/steelbrain/Expected-Write/issues"
+  },
+  "homepage": "https://github.com/steelbrain/Expected-Write#readme",
+  "dependencies":{
+    "a-promise": "latest"
+  }
+}
