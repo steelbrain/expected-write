@@ -18,5 +18,8 @@
   "homepage": "https://github.com/steelbrain/Expected-Write#readme",
   "dependencies":{
     "a-promise": "latest"
+  },
+  "scripts":{
+    "prepublish": "uc-compile Source/Main.coffee"
   }
 }
