@@ -1,5 +1,7 @@
 Expected-Write
 ===========
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/steelbrain/Expected-Write.svg)](https://greenkeeper.io/)
 Expected-Write is a tiny Promise-based expect-and-write library. It's super simple to get going with it and it works on all kinds of streams and child processes.
 
 #### SSH Example
