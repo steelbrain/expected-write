@@ -3,7 +3,7 @@ import { Readable, Writable } from 'stream'
 
 const DEFAULT_TIMEOUT = 10 * 1000 // 10s
 const DEFAULT_ENCODING: BufferEncoding = 'utf8'
-const EXPECT_DUPLICATE_MESSAGE = 'Cannot expect two things at once. Please wait for first expectation to complete'
+const UNEXPECTED_DUPLICATE_MESSAGE = 'Cannot expect two things at once. Please wait for first expectation to complete'
 
 interface Options {
   encoding: BufferEncoding
@@ -205,7 +205,7 @@ function getExpectedWrite(givenOptions: Partial<Options>): ExpectedWrite {
   }
 
   function setExpectation<Input>(timeout: number, expectationType: ExpectationType, contents: Input): Promise<string> {
-    invariant(expectation === null, EXPECT_DUPLICATE_MESSAGE)
+    invariant(expectation === null, UNEXPECTED_DUPLICATE_MESSAGE)
     return getTimedPromise(timeout, function(resolve, reject) {
       expectation = {
         type: expectationType,
@@ -293,4 +293,4 @@ function getExpectedWrite(givenOptions: Partial<Options>): ExpectedWrite {
   return expectedWrite
 }
 
-exports = getExpectedWrite
+export { getExpectedWrite, UnexpectedContentsError, DEFAULT_TIMEOUT, DEFAULT_ENCODING }
