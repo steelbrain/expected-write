@@ -1,25 +1,51 @@
 {
   "name": "expected-write",
-  "version": "0.0.1",
-  "description": "A promise based expect-and-write for child_processes and streams",
-  "main": "./Dist/Main.js",
+  "version": "0.0.0",
+  "description": "A promise-based expect-and-write for streams",
+  "main": "lib/cjs/index.js",
+  "typings": "lib/typings/index.d.ts",
+  "module": "lib/esm/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava",
+    "lint": "(tsc -p . --noEmit) && (eslint . --ext .ts) && (prettier --list-different src/*.ts)",
+    "prepare": "yarn build:clean ; yarn build:esm ; yarn build:cjs ; yarn build:typings",
+    "build:clean": "rm -rf lib",
+    "build:esm": "tsc --module es2015 --target es2018 --outDir lib/esm",
+    "build:cjs": "tsc --module commonjs --target es5 --outDir lib/cjs",
+    "build:typings": "tsc --declaration --outDir lib/typings --emitDeclarationOnly"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/steelbrain/Expected-Write.git"
+    "url": "git+https://github.com/steelbrain/expected-write.git"
   },
   "author": "steelbrain",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/steelbrain/Expected-Write/issues"
+    "url": "https://github.com/steelbrain/expected-write/issues"
   },
-  "homepage": "https://github.com/steelbrain/Expected-Write#readme",
-  "dependencies":{
-    "a-promise": "latest"
+  "files": [
+    "lib/*"
+  ],
+  "homepage": "https://github.com/steelbrain/expected-write#readme",
+  "devDependencies": {
+    "ava": "^3.7.0",
+    "eslint-config-steelbrain": "^9.0.1",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.8.3"
   },
-  "scripts":{
-    "prepublish": "uc-compile Source/Main.coffee"
+  "dependencies": {},
+  "ava": {
+    "files": [
+      "test/*-test.ts"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register/transpile-only"
+    ]
+  },
+  "engines": {
+    "node": ">= 8"
   }
 }
